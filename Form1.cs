@@ -15,6 +15,8 @@ namespace SimpleTodoList
         public MainForm()
         {
             InitializeComponent();
+            LoadZam();
+            CountZam();
         }
 
         //нужно загрузить заметки из файла
@@ -85,17 +87,17 @@ namespace SimpleTodoList
 
             //пустая ли строка
             if (string.IsNullOrEmpty(newwords))
+            {
                 MessageBox.Show("Введите текст заметки!");
-            return;
+                return;
+            }
 
-            //добавляем заметку в список
             notes.Add(newwords);
             listBoxTasks.Items.Add(GetShortZam(newwords));
 
             textBox1.Clear();
             textBox1.Focus();
 
-            //обновляем и сохраняем
             CountZam();
             SaveZam();
         }
@@ -116,6 +118,17 @@ namespace SimpleTodoList
                 MessageBox.Show("Выберите заметку для удаления!");
                 return;
             }
+
+            int selectedIndex = listBoxTasks.SelectedIndex;
+
+            notes.RemoveAt(selectedIndex);
+            listBoxTasks.Items.RemoveAt(selectedIndex);
+
+
+            CountZam();
+            SaveZam();
+
+            textBox1.Clear();
         }
 
         private void labelText_Click(object sender, EventArgs e)
@@ -125,7 +138,7 @@ namespace SimpleTodoList
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            SaveZam();
         }
     }
 }

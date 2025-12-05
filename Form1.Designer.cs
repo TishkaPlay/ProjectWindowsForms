@@ -40,9 +40,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 12);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
+            this.textBox1.Size = new System.Drawing.Size(271, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -76,7 +76,7 @@
             // 
             this.labelText.AutoSize = true;
             this.labelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelText.Location = new System.Drawing.Point(260, 412);
+            this.labelText.Location = new System.Drawing.Point(246, 399);
             this.labelText.Name = "labelText";
             this.labelText.Size = new System.Drawing.Size(129, 17);
             this.labelText.TabIndex = 4;
@@ -87,7 +87,7 @@
             // 
             this.buttonDelete.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete.Location = new System.Drawing.Point(12, 412);
+            this.buttonDelete.Location = new System.Drawing.Point(12, 402);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(87, 28);
             this.buttonDelete.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             this.buttonSave.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(105, 412);
+            this.buttonSave.Location = new System.Drawing.Point(105, 402);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 28);
             this.buttonSave.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 452);
+            this.ClientSize = new System.Drawing.Size(401, 443);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelText);
