@@ -44,6 +44,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(243, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -60,6 +61,7 @@
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // listBoxTasks
             // 
@@ -68,6 +70,7 @@
             this.listBoxTasks.Name = "listBoxTasks";
             this.listBoxTasks.Size = new System.Drawing.Size(377, 355);
             this.listBoxTasks.TabIndex = 3;
+            this.listBoxTasks.SelectedIndexChanged += new System.EventHandler(this.listBoxTasks_SelectedIndexChanged);
             // 
             // labelText
             // 
@@ -78,6 +81,7 @@
             this.labelText.Size = new System.Drawing.Size(129, 17);
             this.labelText.TabIndex = 4;
             this.labelText.Text = "Список задач: 0";
+            this.labelText.Click += new System.EventHandler(this.labelText_Click);
             // 
             // buttonDelete
             // 
@@ -89,6 +93,7 @@
             this.buttonDelete.TabIndex = 5;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonSave
             // 
@@ -100,6 +105,7 @@
             this.buttonSave.TabIndex = 6;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // MainForm
             // 
