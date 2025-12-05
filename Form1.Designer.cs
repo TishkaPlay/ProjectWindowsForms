@@ -65,10 +65,12 @@
             // 
             // listBoxTasks
             // 
+            this.listBoxTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxTasks.FormattingEnabled = true;
+            this.listBoxTasks.ItemHeight = 20;
             this.listBoxTasks.Location = new System.Drawing.Point(12, 41);
             this.listBoxTasks.Name = "listBoxTasks";
-            this.listBoxTasks.Size = new System.Drawing.Size(377, 355);
+            this.listBoxTasks.Size = new System.Drawing.Size(377, 344);
             this.listBoxTasks.TabIndex = 3;
             this.listBoxTasks.SelectedIndexChanged += new System.EventHandler(this.listBoxTasks_SelectedIndexChanged);
             // 

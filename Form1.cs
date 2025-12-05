@@ -32,19 +32,19 @@ namespace SimpleTodoList
                     notes.Clear();
                     listBoxTasks.Items.Clear();
 
-                    foreach (string line in lines)
+                    for (int i = 0; i < lines.Length; i++)
                     {
-                        if (!string.IsNullOrEmpty(line))
+                        if (!string.IsNullOrWhiteSpace(lines[i]))
                         {
-                            notes.Add(line);
-                            listBoxTasks.Items.Add(GetShortZam(line));
+                            notes.Add(lines[i]);
+                            listBoxTasks.Items.Add(GetShortZam(lines[i], i));
                         }
                     }
                 }
             }
-            catch 
+            catch
             {
-                
+
             }
         }
 
@@ -62,11 +62,15 @@ namespace SimpleTodoList
         }
 
         //укоротили длинные заметки для отображения
-        private string GetShortZam(string note)
+        private string GetShortZam(string note, int index)
         {
-            if (note.Length > 40)
-                return note.Substring(0, 37) + "...";
-            return note;
+            //добавим номер перед текстом
+            string number = $"{index + 1}. ";
+
+            //обрезаем длинный текст
+            string shortText = note.Length > 40 ? note.Substring(0, 37) + "..." : note;
+
+            return $"{number}{shortText}";
         }
 
         private void CountZam()
@@ -92,8 +96,9 @@ namespace SimpleTodoList
                 return;
             }
 
+            //добавляем заметку в список
             notes.Add(newwords);
-            listBoxTasks.Items.Add(GetShortZam(newwords));
+            listBoxTasks.Items.Add(GetShortZam(newwords, notes.Count - 1)); //index новой заметки
 
             textBox1.Clear();
             textBox1.Focus();
@@ -119,11 +124,12 @@ namespace SimpleTodoList
                 return;
             }
 
+            //получаем index выбранной заметки
             int selectedIndex = listBoxTasks.SelectedIndex;
 
+            //и удаляем её
             notes.RemoveAt(selectedIndex);
             listBoxTasks.Items.RemoveAt(selectedIndex);
-
 
             CountZam();
             SaveZam();
@@ -140,5 +146,53 @@ namespace SimpleTodoList
         {
             SaveZam();
         }
+
+        //увидел в инете и хотел попробовать реализовать, делаем двойной клик по заметки и редактируем её
+        /*private void listBoxTasks_DoubleClick(object sender, KeyEventArgs e)
+        {
+            if (listBoxTasks.SelectedIndex != -1)
+            {
+                //получаем и сохраняем индекс выбранной заметки
+                int selectedIndex = listBoxTasks.SelectedIndex;
+
+                //если мы уже редактируем эту заметку - сохраняем изменения
+                if (textBox1.Text != notes[selectedIndex] && textBox1.Text.Trim() != "")
+                {
+                    //сохраняем предыдущие изменения, если они были
+                    notes[selectedIndex] = textBox1.Text.Trim();
+                    listBoxTasks.Items[selectedIndex] = GetShortZam(notes[selectedIndex]);
+                    SaveZam();
+                    CountZam();
+                }
+
+                //показываем полный текст заметки для редактирования
+                textBox1.Text = notes[selectedIndex];
+                textBox1.Focus();
+                textBox1.SelectAll();
+                
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //находим какая заметка сейчас редактируется
+                if (listBoxTasks.SelectedIndex != -1)
+                {
+                    int selectedIndex = listBoxTasks.SelectedIndex;
+
+                    notes[selectedIndex] = textBox1.Text.Trim();
+                    listBoxTasks.Items[selectedIndex] = GetShortZam(notes[selectedIndex]);
+
+                    SaveZam();
+                    CountZam();
+
+                    textBox1.Clear();
+                    MessageBox.Show("Изменения сохранены!");
+                }
+            }
+        }*/
+
     }
 }
