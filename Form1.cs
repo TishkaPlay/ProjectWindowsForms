@@ -131,9 +131,13 @@ namespace SimpleTodoList
             notes.RemoveAt(selectedIndex);
             listBoxTasks.Items.RemoveAt(selectedIndex);
 
+            for (int i = 0; i < listBoxTasks.Items.Count; i++)
+            {
+                listBoxTasks.Items[i] = GetShortZam(notes[i], i);
+            }
+
             CountZam();
             SaveZam();
-
             textBox1.Clear();
         }
 
